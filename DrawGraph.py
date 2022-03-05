@@ -41,17 +41,62 @@ def f(x):                                             # 예시 함수
     return (1/32)*x**2
 
 
-canvas = Canvas()
+def test1():
+    canvas = Canvas()
+    
+    canvas.show()
+    
+    canvas.draw(lambda x : (1/90)*x**3 - x, '3')    # 예시 함수 같이 새로운 함수를 만들지 않고 일회용 함수를 만들어서 넘기는 방법 - f(x) = (1/90)*(x-16)**3 + 19 을 만들어준거임
+    canvas.show()
+    
+    canvas.draw(f, '2')                                   # 함수와 찍을 점을 넘긴다
+    canvas.show()
+    
+    canvas.clear()
+    
+    canvas.draw(lambda x : 10*math.sin(x/5))         # 삼각함수도 그릴수 있다
+    canvas.show()
+    
+    canvas.draw(lambda x : x, '/')
+    canvas.show()
+    
 
-canvas.show()
+#test1()
 
-canvas.draw(lambda x : (1/90)*x**3, '3')    # 예시 함수 같이 새로운 함수를 만들지 않고 일회용 함수를 만들어서 넘기는 방법 - f(x) = (1/90)*(x-16)**3 + 19 을 만들어준거임
-canvas.show()
 
-canvas.draw(f, '2')                                   # 함수와 찍을 점을 넘긴다
-canvas.show()
+'''
+fx = [                                              # 함수 리스트
+    lambda x : x + 12,                                # f(x) = x + 12
+    lambda x : (1/200)*x**3 - x,                      # ...
+    lambda x : -5*math.sin(x/3) - 6,                  # ...
+]
 
-canvas.clear()
+def func(x):
+    if x < -15:
+        return fx[0](x)
+    elif -15 <= x < 10:
+        return fx[1](x)
+    else:
+        return fx[2](x)
 
-canvas.draw(lambda x : 10*math.sin(x/5))         # 삼각함수도 그릴수 있다
-canvas.show()
+# 위 방식처럼 해도 됨 - 함수 리스트 만드는 예시.
+'''
+
+def func(x):                                        # x값에 따라 달라짐
+    if x < -15:
+        return x + 12
+    elif -15 <= x < 10:
+        return (1/200)*x**3 - x    
+    else:
+        return -5*math.sin(x/3) - 6
+        
+def showGraph(function, char = '*'):                # 매번 새로운 캔버스에 그래프를 그리고 출력하는 함수
+    canvas = Canvas()
+    canvas.draw(function, char)
+    canvas.show()
+
+def test2():
+    showGraph(lambda x : 5*math.tan(x/5))
+    showGraph(func, '#')
+
+test2()
