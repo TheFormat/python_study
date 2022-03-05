@@ -17,7 +17,7 @@ class Canvas:                                       # 그림을 그릴 Canvas �
         for x in range(0, self.width):                                          # x는 0부터 증가
             y = round(function(x - round(self.width/2))) + round(self.height/2) # y = 반올림( f(x - 가로길이 절반) ) + 세로길이 절반
             if y in range(0, self.height):                                      # y값이 캔버스의 크기보다 안쪽이면
-                self.arr[y][x] = char                                           # 캔버스에 y = f(x) 그래프를 그림(점을 찍음)
+                self.arr[y][x] = char                                           # 캔버스에 y = f(x) 그래프를 그림('*'을 찍음)
 
     def show(self):                                   # 캔버스를 화면에 출력하는 함수
         for i in reversed(range(0, self.height)):       # 프로그래밍 할때는 아래로 갈수록 y값이 증가하니까 뒤집어서 출력할거임. 그래야 제대로 보임
