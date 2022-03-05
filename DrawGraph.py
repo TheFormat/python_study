@@ -57,7 +57,7 @@ def test1():
     canvas.draw(lambda x : 10*math.sin(x/5))         # 삼각함수도 그릴수 있다
     canvas.show()
     
-    canvas.draw(lambda x : x, '/')
+    canvas.draw(lambda x : 2*x, '/')                 # 접선은 못참지
     canvas.show()
     
 
