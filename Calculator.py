@@ -1,8 +1,8 @@
 class Calculator :
     
-    def __init__(self, num1, num2) :
-        self.num1 = num1
-        self.num2 = num2
+    def __init__(self) :
+        self.num1 = 0
+        self.num2 = 0
         
     def setdata(self, num1, num2) :
         self.num1 = num1
@@ -28,27 +28,28 @@ class Calculator :
         result = self.num1 % self.num2
         return result
         
+    def pow(self) :
+        result = self.num1 ** self.num2
+        return result
+        
 a = int(input())
-c = str(input())
-b = int(input())
-f = Calculator(a, b)
+calc = Calculator()
 while True :
-    r = int()
-    if c == "add" :
-        f.setdata(a, b)
-        r = f.add()
-    elif c == "sub" :
-        f.setdata(a, b)
-        r = f.sub()
-    elif c == "mul" :
-        f.setdata(a, b)
-        r = f.mul()
-    elif c == "div" :
-        f.setdata(a, b)
-        r = f.div()
-    elif c == "mod" :
-        f.setdata(a, b)
-        r = f.mod()
+    oper = str(input())
+    b = int(input())
+    calc.setdata(a, b)
+    if oper == "+" :
+        a = calc.add()
+    elif oper == "-" :
+        a = calc.sub()
+    elif oper == "*" :
+        a = calc.mul()
+    elif oper == "/" :
+        a = calc.div()
+    elif oper == "%" :
+        a = calc.mod()
+    elif oper == "**" :
+        a = calc.pow()
     else :
         print("Wrong Operator!")
-    print(r)
+    print(a)
