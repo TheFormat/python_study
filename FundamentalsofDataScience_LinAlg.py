@@ -35,3 +35,8 @@ lifespan = np.array([[66], [74], [78]])                 # 수명
 vector_x = np.linalg.solve(data, lifespan)              # 모델 벡터는 data가 linear independent 할 때 unique solution을 가지며
 print(vector_x)                                         # Ax = b계산은 np.linalg.solve(A,b)로 할 수 있다.
 
+eig = np.linalg.eig                                     # eigenvalue, eigenvector 출력 방법
+print(eig(array0))
+eigvalue , eigvector = eig(array0)
+print(eigvalue)
+print(eigvector)
