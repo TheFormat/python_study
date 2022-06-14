@@ -20,3 +20,30 @@ print(np.corrcoef(a)[0,1])
 # Cov[X,X] = Var[X]이니까...
 # 상관계수는 corrcoef가 된다.
 # 나머지는 검색해서..
+
+from numpy import random
+# random.seed(0)
+# random값 고정
+# ㅈ건부 확률 어디서 배낀거임. conditional probability
+ageppl = {30:0, 40:0, 50:0, 60:0, 70:0}
+sell = {30:0, 40:0, 50:0, 60:0, 70:0}
+totalsell = 0
+ppl = 100000
+for _ in range(ppl) :
+    age = random.choice([30, 40, 50, 60, 70])
+    prob = float(age)/100
+    ageppl[age] += 1 
+    if (random.random() < prob) :
+        totalsell += 1 
+        sell[age] += 1 
+# 나이에 따른 구매확률. 인구수만큼 반복한다고 설정
+
+prob30 = ageppl[30]/ppl
+prob30_buy = sell[30]/ppl
+print(prob30)
+print(prob30_buy)
+print(prob30_buy/prob30)
+print(sell[30]/ageppl[30])
+# 30대 중에서 30대 판매량
+print(totalsell/ppl)
+# 평균은 0.5 근처에서 노는게 맞다.
