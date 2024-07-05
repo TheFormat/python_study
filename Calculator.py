@@ -32,11 +32,11 @@ class Calculator :
         result = self.num1 ** self.num2
         return result
         
-a = int(input())
+a = float(input())
 calc = Calculator()
 while True :
     oper = str(input())
-    b = int(input())
+    b = float(input())
     calc.setdata(a, b)
     if oper == "+" :
         a = calc.add()
